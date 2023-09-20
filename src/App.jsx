@@ -9,7 +9,7 @@ import CreateAccount from "./components/CreateAccount";
 import Login from "./components/Login";
 import Deposit from "./components/Deposit";
 import Withdraw from "./components/Withdraw";
-import Balance from "./components/balance";
+import Balance from "./components/Balance";
 import AllData from "./components/AllData";
 // import NavBar from "./components/NavBar";
 // import Products from "./components/Products";
