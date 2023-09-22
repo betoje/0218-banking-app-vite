@@ -15,13 +15,13 @@ export default function Card(props){
     function classes(){
       const bg  = props.bgcolor ? ' bg-' + props.bgcolor : ' ';
       const txt = props.txtcolor ? ' text-' + props.txtcolor: ' text-white';
-      return 'card m-4 ' + bg + txt;
+      return 'card text-center m-4 ' + bg + txt;
     }
   
     return (
       <div className={classes()} style={{maxWidth: "18rem"}}>
         <div className="card-header text-warning">
-          <strong>{props.header1}{props.headerValue1}</strong>
+          <h4><strong>{props.header1}{props.headerValue1}</strong></h4>
           <div>{props.header2}{props.header2Value}</div>
           <div>{props.header3}{props.header3Value}</div>
         </div>

@@ -22,7 +22,7 @@ export default function AllData() {
 
   return (
     <>
-      <h5 className="dataHeader text-primary">Users Information</h5>
+      <h5 className="dataHeader text-info">Users Information</h5>
       <table className="table table-bordered table-striped">
         <thead>
           <tr>
