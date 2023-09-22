@@ -9,7 +9,6 @@ export default function Login() {
   const [show, setShow] = useState(true);
   const [status, setStatus] = useState("");
   const [name, setName] = useState("");
-  // const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const {users, addUser, cUser, addCUser} = useContext(UserContext);
 
@@ -23,18 +22,11 @@ export default function Login() {
   }
 
   function handleLogin() {
-    // console.log(name, email, password);
     console.log(name, password);
     console.log(JSON.stringify(users));
-    // if (!validate(name, "name")) return;
-    // if (!validate(email, "email")) return;
-    // if (!validate(password, "password")) return;
-
     setStatus("Validation Error");
     for (const user of users ) {
-      // if ((name !== user.name) & (email !== user.email) ) continue;
       if ((name !== user.name) & (name !== user.email) ) continue;
-      // if (email !== user.email) continue;
       if (password !== user.password) continue;
       setStatus("Validation Succeded");
       addCUser(user.name, user.email, user.password, user.balance);
@@ -51,10 +43,10 @@ export default function Login() {
 
   return (
     <>
-      <h1>Login</h1>
       <Card
-        bgcolor="primary"
-        header="Validate User"
+        bgcolor="info"
+        header1="Login user"
+        header1Value=""
         status={status}
         body={
           show ? (
@@ -69,17 +61,6 @@ export default function Login() {
                 value={name}
                 onChange={(e) => setName(e.currentTarget.value)}
               />
-              {/* <br />
-              Email address
-              <br />
-              <input
-                type="input"
-                className="form-control"
-                id="email"
-                placeholder="Enter email"
-                value={email}
-                onChange={(e) => setEmail(e.currentTarget.value)}
-              /> */}
               <br />
               Password
               <br />
@@ -108,7 +89,7 @@ export default function Login() {
                 className="btn btn-light"
                 onClick={clearForm}
               >
-                Try Again
+                Login again
               </button>
             </>
           )

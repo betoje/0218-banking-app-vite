@@ -20,7 +20,11 @@ export default function Card(props){
   
     return (
       <div className={classes()} style={{maxWidth: "18rem"}}>
-        <div className="card-header text-warning"><strong>{props.header}</strong></div>
+        <div className="card-header text-warning">
+          <strong>{props.header1}{props.headerValue1}</strong>
+          <div>{props.header2}{props.header2Value}</div>
+          <div>{props.header3}{props.header3Value}</div>
+        </div>
         <div className="card-body">
           {props.title && (<h5 className="card-title">{props.title}</h5>)}
           {props.text && (<p className="card-text">{props.text}</p>)}

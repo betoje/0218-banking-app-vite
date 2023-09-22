@@ -28,8 +28,8 @@ export default function CreateAccount() {
       }
     }
     if (label === 'password') {
-      if (field.length < 4) {
-        setStatus("Error: " + label + " less than 4 characters length");
+      if (field.length < 8) {
+        setStatus("Error: " + label + " less than 8 characters length");
         setTimeout(() => setStatus(""), 3000);
         return false;
       }
@@ -56,10 +56,10 @@ export default function CreateAccount() {
 
   return (
     <>
-      <h1>Create Account</h1>
       <Card
-        bgcolor="primary"
-        header="Create Account"
+        bgcolor="info"
+        header1="Create account"
+        header1Value=""
         status={status}
         body={
           show ? (

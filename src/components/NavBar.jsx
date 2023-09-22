@@ -1,6 +1,6 @@
 import reactLogo from "../assets/react.svg";
 // React Icons
-import { AiFillShopping } from "react-icons/ai";
+import { AiOutlineUser } from "react-icons/ai";
 // React Router
 import { Link, Outlet } from "react-router-dom";
 // React Bootstrap
@@ -23,24 +23,24 @@ function NavBar() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link as={Link} to="/createaccount">
+              <Nav.Link className="navlink" as={Link} to="/createaccount">
                 Create Account
               </Nav.Link>
-              <Nav.Link className="text-success" as={Link} to="/login">
+              <Nav.Link className="hover-zoom navlink" as={Link} to="/login">
                 Login
               </Nav.Link>
-              <Nav.Link as={Link} to="/deposit">
+              <Nav.Link className="navlink" as={Link} to="/deposit">
                 Deposit
               </Nav.Link>
-              <Nav.Link as={Link} to="/withdraw">
+              <Nav.Link className="navlink" as={Link} to="/withdraw">
                 Withdraw
               </Nav.Link>
-              <Nav.Link as={Link} to="/balance">
+              <Nav.Link className="navlink" as={Link} to="/balance">
                 Balance
               </Nav.Link>
-              <Nav.Link as={Link} to="/alldata">
+              <Nav.Link className="navlink" as={Link} to="/alldata">
                 Users({users.length})
-                <AiFillShopping />
+                <AiOutlineUser />
                 <span>{cUser.name}</span>
                 </Nav.Link>
             </Nav>
