@@ -27,6 +27,12 @@ export default function Withdraw() {
       setTimeout(() => setStatus(""), 3000);
       return false;
     }
+    console.log(field, parseInt(field));
+    if (isNaN(field)) {
+      setStatus("Error: " + label + " not a number");
+      setTimeout(() => setStatus(""), 3000);
+      return false;
+    }
     if (field > cBalance) {
       setStatus("Error: " + label + " greater than available funds");
       setTimeout(() => setStatus(""), 3000);

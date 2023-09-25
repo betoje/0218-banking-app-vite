@@ -1,7 +1,6 @@
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
-// import viteLogo from "/vite.svg";
-
+import bankLogo from "/bank.png";
 // React Components
 import NavBar from "./components/NavBar";
 import Home from "./components/Home";
@@ -11,11 +10,6 @@ import Deposit from "./components/Deposit";
 import Withdraw from "./components/Withdraw";
 import Balance from "./components/Balance";
 import AllData from "./components/AllData";
-// import NavBar from "./components/NavBar";
-// import Products from "./components/Products";
-// import Checkout from "./components/Checkout";
-// import About from "./components/About";
-
 // React Router
 import {
   createHashRouter,
@@ -26,10 +20,8 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-
 // React Context
 import { UserProvider } from "./UserContext";
-
 // Styles
 import "./App.css";
 

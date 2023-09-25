@@ -1,0 +1,9 @@
+.navlink:hover {
+  background-color:lightblue;
+  color: white !important;
+}
+
+.nav-link:active {
+  /* background-color:lightblue; */
+  color: blue !important;
+}

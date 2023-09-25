@@ -1,6 +1,3 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-
 import Card from "./Card";
 import { useContext, useState } from "react";
 import UserContext from "../UserContext";
@@ -36,7 +33,6 @@ export default function Login() {
 
   function clearForm() {
     setName("");
-    // setEmail("");
     setPassword("");
     setShow(true);
   }

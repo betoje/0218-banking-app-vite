@@ -5,6 +5,7 @@ import UserContext from "../UserContext";
 export default function Deposit() {
   const [show, setShow] = useState(true);
   const [status, setStatus] = useState("");
+  const [activeButton, setActiveButton] = useState(true);
 
   const { users, addUser, cUser, addCUser } = useContext(UserContext);
   const [depositAmount, setDepositAmount] = useState(0);
@@ -24,6 +25,13 @@ export default function Deposit() {
   function validate(field, label) {
     if (!field) {
       setStatus("Error: " + label + " required");
+      // setActiveButton(false);
+      setTimeout(() => setStatus(""), 3000);
+      return false;
+    }
+    console.log(field, parseInt(field));
+    if (isNaN(field)) {
+      setStatus("Error: " + label + " not a number");
       setTimeout(() => setStatus(""), 3000);
       return false;
     }
@@ -40,16 +48,16 @@ export default function Deposit() {
     if (!validate(depositAmount, "Deposit amount")) return;
     setCBalance(cBalance + parseInt(depositAmount));
     console.log(cName, cBalance);
-
     setShow(false);
   }
 
   function clearForm() {
     setCBalance(cBalance);
     setShow(true);
+    setActiveButton(true);
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     for (const user of users) {
       if (cName === user.name) {
         user.balance = cBalance;
@@ -58,7 +66,7 @@ export default function Deposit() {
         break;
       }
     }
-  }, [cBalance])
+  }, [cBalance]);
 
   return (
     <>
@@ -82,14 +90,17 @@ export default function Deposit() {
                 id="deposit-amount"
                 placeholder="Enter amount to deposit"
                 value={depositAmount}
-                onChange={(e) =>
-                  setDepositAmount(e.currentTarget.value)
-                }
+                onChange={(e) => {
+                  let cValue = e.currentTarget.value;
+                  console.log(cValue);
+                  if (!cValue) setActiveButton(false);
+                  setDepositAmount(cValue);
+                }}
               />
               <br />
               <button
                 type="submit"
-                className="btn btn-light"
+                className={activeButton ? "btn btn-light" : "btn btn-light disable"}
                 onClick={handleDeposit}
               >
                 Perform deposit

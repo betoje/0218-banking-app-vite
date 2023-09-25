@@ -1,15 +1,4 @@
-import { createContext } from "react";
-import {createHashRouter, 
-  createBrowserRouter,
-  RouterProvider,
-  HashRouter,
-  BrowserRouter,
-  Routes,
-  Route,
-  Link
-} from "react-router-dom";
-
-const UserContext = createContext(null);
+import { Button } from "react-bootstrap";
 
 export default function Card(props){
     function classes(){
@@ -20,10 +9,10 @@ export default function Card(props){
   
     return (
       <div className={classes()} style={{maxWidth: "18rem"}}>
-        <div className="card-header text-warning">
+        <div className="card-header text-ligth">
           <h4><strong>{props.header1}{props.headerValue1}</strong></h4>
           <div>{props.header2}{props.header2Value}</div>
-          <div>{props.header3}{props.header3Value}</div>
+          {props.header3? <Button className="bg-light text-dark">{props.header3}{props.header3Value}</Button> : <></>}
         </div>
         <div className="card-body">
           {props.title && (<h5 className="card-title">{props.title}</h5>)}

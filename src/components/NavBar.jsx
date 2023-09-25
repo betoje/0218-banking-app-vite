@@ -8,6 +8,8 @@ import { Nav, Navbar, NavDropdown, Image, Container } from "react-bootstrap";
 // React Context
 import UserContext from "../UserContext";
 import { useContext } from "react";
+// Styles
+import "./NavBar.css";
 
 function NavBar() {
   const { users, addUser, cUser, addCUser } = useContext(UserContext);
@@ -15,7 +17,8 @@ function NavBar() {
   return (
     <>
       <Navbar expand="sm" className="bg-body-tertiary">
-        <Container>
+      {/* <Navbar expand="lg" bg="light" data-bs-theme="light"> */}
+      <Container>
           <Navbar.Brand as={Link} to="/">
             <strong>REACTbank </strong>
             <Image src={reactLogo} alt="logo" />
@@ -26,7 +29,7 @@ function NavBar() {
               <Nav.Link className="navlink" as={Link} to="/createaccount">
                 Create Account
               </Nav.Link>
-              <Nav.Link className="hover-zoom navlink" as={Link} to="/login">
+              <Nav.Link className="navlink" as={Link} to="/login">
                 Login
               </Nav.Link>
               <Nav.Link className="navlink" as={Link} to="/deposit">
