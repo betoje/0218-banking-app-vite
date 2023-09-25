@@ -69,7 +69,8 @@ export default function Withdraw() {
   return (
     <>
       <Card
-        bgcolor="success"
+        // bgcolor="success"
+        bgcolor="warning"
         // txtcolor="dark"
         header1="Withdraw"
         header1Value=""

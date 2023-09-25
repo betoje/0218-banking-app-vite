@@ -1,11 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import Card from "./Card";
 import UserContext from "../UserContext";
+import {Button} from 'react-bootstrap';
 
 export default function Deposit() {
   const [show, setShow] = useState(true);
   const [status, setStatus] = useState("");
-  const [activeButton, setActiveButton] = useState(true);
+  // const [activeButton, setActiveButton] = useState(true);
 
   const { users, addUser, cUser, addCUser } = useContext(UserContext);
   const [depositAmount, setDepositAmount] = useState(0);
@@ -23,9 +24,9 @@ export default function Deposit() {
   const [cBalance, setCBalance] = useState(uBalance);
 
   function validate(field, label) {
+    // setActiveButton(false);
     if (!field) {
       setStatus("Error: " + label + " required");
-      // setActiveButton(false);
       setTimeout(() => setStatus(""), 3000);
       return false;
     }
@@ -40,6 +41,7 @@ export default function Deposit() {
       setTimeout(() => setStatus(""), 3000);
       return false;
     }
+    // setActiveButton(true);
     return true;
   }
 
@@ -54,7 +56,7 @@ export default function Deposit() {
   function clearForm() {
     setCBalance(cBalance);
     setShow(true);
-    setActiveButton(true);
+    // setActiveButton(true);
   }
 
   useEffect(() => {
@@ -92,19 +94,18 @@ export default function Deposit() {
                 value={depositAmount}
                 onChange={(e) => {
                   let cValue = e.currentTarget.value;
-                  console.log(cValue);
-                  if (!cValue) setActiveButton(false);
                   setDepositAmount(cValue);
                 }}
               />
               <br />
-              <button
+              <Button
                 type="submit"
-                className={activeButton ? "btn btn-light" : "btn btn-light disable"}
+                className="btn btn-light"
+                // disabled={!activeButton}
                 onClick={handleDeposit}
               >
                 Perform deposit
-              </button>
+              </Button>
             </>
           ) : (
             <>

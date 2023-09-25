@@ -12,7 +12,7 @@ export default function CreateAccount() {
 
   function validate(field, label) {
     if (!field) {
-      setStatus("Error: " + label);
+      setStatus("Error: " + label + " is required");
       setTimeout(() => setStatus(""), 3000);
       return false;
     }
@@ -54,7 +54,8 @@ export default function CreateAccount() {
   return (
     <>
       <Card
-        bgcolor="info"
+        // bgcolor="info"
+        bgcolor="primary"
         header1="Create account"
         header1Value=""
         status={status}
