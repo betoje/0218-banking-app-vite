@@ -75,12 +75,13 @@ export default function Deposit() {
       <Row className="justify-content-md-center">
         <Col md="auto">
           <Card
-            bgcolor="success"
+            bgcolor="light"
+            txtcolor="info"
             header1="Deposit"
             header1Value=""
             header2="User: "
             header2Value={cName}
-            header3="Current balance: "
+            header3="Current balance: $ "
             header3Value={cBalance}
             status={status}
             body={
@@ -99,7 +100,7 @@ export default function Deposit() {
                   <br />
                   <Button
                     type="submit"
-                    className="btn btn-light"
+                    className="btn btn-secondary"
                     onClick={handleDeposit}
                     disabled={depositAmount === ""}
                   >
@@ -109,7 +110,7 @@ export default function Deposit() {
               ) : (
                 <>
                   <h5>Success</h5>
-                  <Button type="submit" variant="light" onClick={clearForm}>
+                  <Button type="submit" variant="secondary" onClick={clearForm}>
                     Another deposit
                   </Button>
                 </>

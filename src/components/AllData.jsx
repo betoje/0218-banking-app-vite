@@ -9,7 +9,7 @@ export default function AllData() {
       <td>{user.name}</td>
       <td>{user.email}</td>
       <td>{user.password}</td>
-      <td>{user.balance}</td>
+      <td>$ {user.balance}</td>
     </tr>
   ));
   const cUserRow = (
@@ -17,7 +17,7 @@ export default function AllData() {
       <td>{cUser.name}</td>
       <td>{cUser.email}</td>
       <td>{cUser.password}</td>
-      <td>{cUser.balance}</td>
+      <td>$ {cUser.balance}</td>
     </tr>
   );
 

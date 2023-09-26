@@ -1,5 +1,7 @@
 // React Bootstrap
-import { Button } from "react-bootstrap";
+import { Button } from "react-bootstrap"
+// Styles
+import "./Card.css";
 
 export default function Card(props){
     function classes(){
@@ -16,8 +18,8 @@ export default function Card(props){
           {props.header3? <Button disabled={true} className="bg-light text-dark">{props.header3}{props.header3Value}</Button> : <></>}
         </div>
         <div className="card-body">
-          {props.title && (<h5 className="card-title">{props.title}</h5>)}
-          {props.text && (<p className="card-text">{props.text}</p>)}
+          {props.title && (<h5 className={"card-title text-"+ props.txtcolor2}>{props.title}</h5>)}
+          {props.text && (<p className={"card-text text-" + props.txtcolor2}>{props.text}</p>)}
           {props.body}
           {props.status && (<div id='createStatus' className="text-warning">{props.status}</div>)}
         </div>

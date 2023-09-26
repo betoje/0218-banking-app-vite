@@ -27,12 +27,13 @@ export default function Balance() {
       <Row className="justify-content-md-center">
         <Col md="auto">
           <Card
-            bgcolor="secondary"
+            bgcolor="light"
+            txtcolor="info"
             header1="Balance"
             header1Value=""
             header2="User: "
             header2Value={cName}
-            header3="Current balance: "
+            header3="Current balance: $ "
             header3Value={cBalance}
           />
         </Col>

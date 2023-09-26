@@ -37,6 +37,10 @@ const router = createHashRouter([
         element: <Home />,
       },
       {
+        path: "/home",
+        element: <Home />,
+      },
+      {
         path: "/createaccount",
         element: <CreateAccount />,
       },
@@ -73,6 +77,7 @@ function App() {
           <NavBar />
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/createaccount" element={<CreateAccount />} />
             <Route path="/login" element={<Login />} />
             <Route path="/deposit" element={<Deposit />} />

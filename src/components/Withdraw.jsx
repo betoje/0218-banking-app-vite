@@ -75,14 +75,13 @@ export default function Withdraw() {
       <Row className="justify-content-md-center">
         <Col md="auto">
           <Card
-            // bgcolor="success"
-            bgcolor="warning"
-            // txtcolor="dark"
+            bgcolor="light"
+            txtcolor="info"
             header1="Withdraw"
             header1Value=""
             header2="User: "
             header2Value={cName}
-            header3="Current balance: "
+            header3="Current balance: $ "
             header3Value={cBalance}
             status={status}
             body={
@@ -101,7 +100,7 @@ export default function Withdraw() {
 
                   <Button
                     type="submit"
-                    variant="light"
+                    variant="secondary"
                     onClick={handleWithdraw}
                     disabled={withdrawAmount === ""}
                   >
@@ -111,7 +110,7 @@ export default function Withdraw() {
               ) : (
                 <>
                   <h5>Success</h5>
-                  <Button type="submit" variant="light" onClick={clearForm}>
+                  <Button type="submit" variant="secondary" onClick={clearForm}>
                     Another withdraw
                   </Button>
                 </>

@@ -61,13 +61,11 @@ export default function CreateAccount() {
       <Row className="justify-content-md-center">
         <Col md="auto">
           <Card
- 
-        // bgcolor="info"
-        bgcolor="primary"
+        bgcolor="light"
+        txtcolor="info"
         header1="Create account"
         header1Value=""
         status={status}
-
         body={
           show ? (
             <>
@@ -117,7 +115,7 @@ export default function CreateAccount() {
 
               <Button
                   type="submit"
-                  variant="light"
+                  variant="secondary"
                   onClick={handleCreate}
                   disabled={name === "" && email === "" && password === ""}
                 >
@@ -127,7 +125,7 @@ export default function CreateAccount() {
               ) : (
                 <>
                   <h5>Success</h5>
-                  <Button type="submit" variant="light" onClick={clearForm}>
+                  <Button type="submit" variant="secondary" onClick={clearForm}>
                     Create another account
                   </Button>
                 </>

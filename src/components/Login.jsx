@@ -47,8 +47,9 @@ export default function Login() {
       <Row className="justify-content-md-center">
         <Col md="auto">
           <Card
-            bgcolor="info"
-            header1="Login user"
+            bgcolor="light"
+            txtcolor="info"
+            header1="Login"
             header1Value=""
             status={status}
             body={
@@ -78,7 +79,7 @@ export default function Login() {
 
                   <Button
                     type="submit"
-                    variant="light"
+                    variant="secondary"
                     onClick={handleLogin}
                     disabled={name === "" && password === ""}
                   >
@@ -88,7 +89,7 @@ export default function Login() {
               ) : (
                 <>
                   <h5>Success</h5>
-                  <Button type="submit" variant="light" onClick={clearForm}>
+                  <Button type="submit" variant="secondary" onClick={clearForm}>
                     Create another account
                   </Button>
                 </>
