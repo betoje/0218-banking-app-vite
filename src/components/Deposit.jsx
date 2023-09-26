@@ -1,15 +1,18 @@
+// React
 import { useContext, useEffect, useState } from "react";
-import Card from "./Card";
+// React Context
 import UserContext from "../UserContext";
-import {Button} from 'react-bootstrap';
+// React Bootstrap
+import { Button, Form, Row, Col, Container } from "react-bootstrap";
+// Components
+import Card from "./Card";
 
 export default function Deposit() {
   const [show, setShow] = useState(true);
   const [status, setStatus] = useState("");
-  // const [activeButton, setActiveButton] = useState(true);
 
   const { users, addUser, cUser, addCUser } = useContext(UserContext);
-  const [depositAmount, setDepositAmount] = useState(0);
+  const [depositAmount, setDepositAmount] = useState("");
 
   let uName, uBalance;
   for (const user of users) {
@@ -24,7 +27,6 @@ export default function Deposit() {
   const [cBalance, setCBalance] = useState(uBalance);
 
   function validate(field, label) {
-    // setActiveButton(false);
     if (!field) {
       setStatus("Error: " + label + " required");
       setTimeout(() => setStatus(""), 3000);
@@ -41,7 +43,6 @@ export default function Deposit() {
       setTimeout(() => setStatus(""), 3000);
       return false;
     }
-    // setActiveButton(true);
     return true;
   }
 
@@ -56,7 +57,6 @@ export default function Deposit() {
   function clearForm() {
     setCBalance(cBalance);
     setShow(true);
-    // setActiveButton(true);
   }
 
   useEffect(() => {
@@ -71,56 +71,53 @@ export default function Deposit() {
   }, [cBalance]);
 
   return (
-    <>
-      <Card
-        bgcolor="success"
-        header1="Deposit"
-        header1Value=""
-        header2="User: "
-        header2Value={cName}
-        header3="Current balance: "
-        header3Value={cBalance}
-        status={status}
-        body={
-          show ? (
-            <>
-              Amount to deposit
-              <br />
-              <input
-                type="input"
-                className="form-control"
-                id="deposit-amount"
-                placeholder="Enter amount to deposit"
-                value={depositAmount}
-                onChange={(e) => {
-                  let cValue = e.currentTarget.value;
-                  setDepositAmount(cValue);
-                }}
-              />
-              <br />
-              <Button
-                type="submit"
-                className="btn btn-light"
-                // disabled={!activeButton}
-                onClick={handleDeposit}
-              >
-                Perform deposit
-              </Button>
-            </>
-          ) : (
-            <>
-              <h5>Success</h5>
-              <button
-                type="submit"
-                className="btn btn-light"
-                onClick={clearForm}
-              >
-                Another deposit
-              </button>
-            </>
-          )
-        }
-      />
-    </>
+    <Container>
+      <Row className="justify-content-md-center">
+        <Col md="auto">
+          <Card
+            bgcolor="success"
+            header1="Deposit"
+            header1Value=""
+            header2="User: "
+            header2Value={cName}
+            header3="Current balance: "
+            header3Value={cBalance}
+            status={status}
+            body={
+              show ? (
+                <>
+                  <Form.Group className="mb-3">
+                    <Form.Label>Amount to deposit:</Form.Label>
+                    <Form.Control
+                      type="input"
+                      id="deposit-amount"
+                      placeholder="Enter amount to deposit"
+                      value={depositAmount}
+                      onChange={(e) => setDepositAmount(e.currentTarget.value)}
+                    />
+                  </Form.Group>
+                  <br />
+                  <Button
+                    type="submit"
+                    className="btn btn-light"
+                    onClick={handleDeposit}
+                    disabled={depositAmount === ""}
+                  >
+                    Perform deposit
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <h5>Success</h5>
+                  <Button type="submit" variant="light" onClick={clearForm}>
+                    Another deposit
+                  </Button>
+                </>
+              )
+            }
+          />
+        </Col>
+      </Row>
+    </Container>
   );
 }

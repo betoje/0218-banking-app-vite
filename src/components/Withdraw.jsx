@@ -1,13 +1,18 @@
+// React
 import { useContext, useEffect, useState } from "react";
-import Card from "./Card";
+// React Context
 import UserContext from "../UserContext";
+// React Bootstrap
+import { Button, Form, Row, Col, Container } from "react-bootstrap";
+// Components
+import Card from "./Card";
 
 export default function Withdraw() {
   const [show, setShow] = useState(true);
   const [status, setStatus] = useState("");
 
   const { users, addUser, cUser, addCUser } = useContext(UserContext);
-  const [withdrawAmount, setWithdrawAmount] = useState(0);
+  const [withdrawAmount, setWithdrawAmount] = useState("");
 
   let uName, uBalance;
   for (const user of users) {
@@ -46,7 +51,6 @@ export default function Withdraw() {
     if (!validate(withdrawAmount, "Withdraw amount")) return;
     setCBalance(cBalance - parseInt(withdrawAmount));
     console.log(cName, cBalance);
-
     setShow(false);
   }
 
@@ -55,7 +59,7 @@ export default function Withdraw() {
     setShow(true);
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     for (const user of users) {
       if (cName === user.name) {
         user.balance = cBalance;
@@ -64,59 +68,58 @@ export default function Withdraw() {
         break;
       }
     }
-  }, [cBalance])
+  }, [cBalance]);
 
   return (
-    <>
-      <Card
-        // bgcolor="success"
-        bgcolor="warning"
-        // txtcolor="dark"
-        header1="Withdraw"
-        header1Value=""
-        header2="User: "
-        header2Value={cName}
-        header3="Current balance: "
-        header3Value={cBalance}
-        status={status}
-        body={
-          show ? (
-            <>
-              Amount to withdraw
-              <br />
-              <input
-                type="input"
-                className="form-control"
-                id="withdraw-amount"
-                placeholder="Enter amount to withdraw"
-                value={withdrawAmount}
-                onChange={(e) =>
-                  setWithdrawAmount(e.currentTarget.value)
-                }
-              />
-              <br />
-              <button
-                type="submit"
-                className="btn btn-light"
-                onClick={handleWithdraw}
-              >
-                Perform withdraw
-              </button>
-            </>
-          ) : (
-            <>
-              <h5>Success</h5>
-              <button
-                type="submit"
-                className="btn btn-light"
-                onClick={clearForm}
-              >
-                Another withdraw
-              </button>
-            </>
-          )
-        }
-      />
-    </>
+    <Container>
+      <Row className="justify-content-md-center">
+        <Col md="auto">
+          <Card
+            // bgcolor="success"
+            bgcolor="warning"
+            // txtcolor="dark"
+            header1="Withdraw"
+            header1Value=""
+            header2="User: "
+            header2Value={cName}
+            header3="Current balance: "
+            header3Value={cBalance}
+            status={status}
+            body={
+              show ? (
+                <>
+                  <Form.Group className="mb-3">
+                    <Form.Label>Amount to withdraw:</Form.Label>
+                    <Form.Control
+                      type="input"
+                      id="withdraw-amount"
+                      placeholder="Enter amount to withdraw"
+                      value={withdrawAmount}
+                      onChange={(e) => setWithdrawAmount(e.currentTarget.value)}
+                    />
+                  </Form.Group>
+
+                  <Button
+                    type="submit"
+                    variant="light"
+                    onClick={handleWithdraw}
+                    disabled={withdrawAmount === ""}
+                  >
+                    Perform withdraw
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <h5>Success</h5>
+                  <Button type="submit" variant="light" onClick={clearForm}>
+                    Another withdraw
+                  </Button>
+                </>
+              )
+            }
+          />
+        </Col>
+      </Row>
+    </Container>
   );
 }

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
-import bankLogo from "/bank.png";
+
 // React Components
 import NavBar from "./components/NavBar";
 import Home from "./components/Home";
@@ -10,6 +10,7 @@ import Deposit from "./components/Deposit";
 import Withdraw from "./components/Withdraw";
 import Balance from "./components/Balance";
 import AllData from "./components/AllData";
+
 // React Router
 import {
   createHashRouter,
@@ -20,37 +21,55 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+
 // React Context
 import { UserProvider } from "./UserContext";
+
 // Styles
 import "./App.css";
 
-// const router = createHashRouter([
-//   {
-//     element: <NavBar />,
-//     children: [
-//       {
-//         path: "/",
-//         element: <Products />,
-//       },
-//       {
-//         path: "/about",
-//         element: <About />,
-//       },
-//       {
-//         path: "/checkout",
-//         element: <Checkout />,
-//       },
-//     ],
-//   },
-// ]);
+const router = createHashRouter([
+  {
+    element: <NavBar />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/createaccount",
+        element: <CreateAccount />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/deposit",
+        element: <Deposit />,
+      },
+      {
+        path: "/withdraw",
+        element: <Withdraw />,
+      },
+      {
+        path: "/balance",
+        element: <Balance />,
+      },
+      {
+        path: "/alldata",
+        element: <AllData />,
+      },
+    ],
+  },
+]);
 
 function App() {
   return (
     <div className="App">
       <UserProvider>
-        {/* <RouterProvider router={router} /> */}
-        <HashRouter>
+        <RouterProvider router={router} />
+        {/* <HashRouter>
           <NavBar />
           <Routes>
             <Route path="/" element={<Home />} />
@@ -60,11 +79,8 @@ function App() {
             <Route path="/withdraw" element={<Withdraw />} />
             <Route path="/balance" element={<Balance />} />
             <Route path="/alldata" element={<AllData />} />
-            {/* <Route path="/" element={<Products />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/checkout" element={<Checkout />} /> */}
           </Routes>
-        </HashRouter>
+        </HashRouter> */}
       </UserProvider>
     </div>
   );

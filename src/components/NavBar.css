@@ -3,6 +3,11 @@
   color: white !important;
 }
 
+.navlink:active {
+  /* background-color:lightblue; */
+  color: blue !important;
+}
+
 .nav-link:active {
   /* background-color:lightblue; */
   color: blue !important;

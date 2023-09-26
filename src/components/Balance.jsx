@@ -1,9 +1,13 @@
+// React
 import { useContext, useEffect, useState } from "react";
-import Card from "./Card";
+// React Context
 import UserContext from "../UserContext";
+// React Bootstrap
+import { Button, Form, Row, Col, Container } from "react-bootstrap";
+// Components
+import Card from "./Card";
 
 export default function Balance() {
-
   const { users, addUser, cUser, addCUser } = useContext(UserContext);
 
   let uName, uBalance;
@@ -19,16 +23,20 @@ export default function Balance() {
   const [cBalance, setCBalance] = useState(uBalance);
 
   return (
-    <>
-      <Card
-        bgcolor="secondary"
-        header1="Balance"
-        header1Value=""
-        header2="User: "
-        header2Value={cName}
-        header3="Current balance: "
-        header3Value={cBalance}
-      />
-    </>
+    <Container>
+      <Row className="justify-content-md-center">
+        <Col md="auto">
+          <Card
+            bgcolor="secondary"
+            header1="Balance"
+            header1Value=""
+            header2="User: "
+            header2Value={cName}
+            header3="Current balance: "
+            header3Value={cBalance}
+          />
+        </Col>
+      </Row>
+    </Container>
   );
 }
