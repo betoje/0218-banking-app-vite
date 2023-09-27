@@ -17,7 +17,7 @@ export default function Home() {
           <Col md="auto">
             <Card
               txtcolor="info"
-              header1="REACTbank Landing Module x"
+              header1="REACTbank Landing Module"
               headerValue1=""
               txtcolor2="secondary"
               title="Welcome to the REACTbank"
