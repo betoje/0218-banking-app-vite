@@ -5,7 +5,7 @@ nav a:hover {
 }
 
 nav .active {
-  background-color: lightcyan;
+  /* background-color: lightcyan; */
   font-weight: bold;
 }
 

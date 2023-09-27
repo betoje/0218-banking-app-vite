@@ -39,6 +39,7 @@ export default function Login() {
   function clearForm() {
     setName("");
     setPassword("");
+    setStatus("");
     setShow(true);
   }
 
@@ -88,9 +89,9 @@ export default function Login() {
                 </>
               ) : (
                 <>
-                  <h5>Success</h5>
+                  {/* <h5>Success</h5> */}
                   <Button type="submit" variant="secondary" onClick={clearForm}>
-                    Create another account
+                    login another account
                   </Button>
                 </>
               )

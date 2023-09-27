@@ -28,7 +28,7 @@ function NavBar() {
 
   return (
     <>
-      <Navbar expand="sm" className="bg-body-tertiary mb-4">
+      <Navbar expand="md" className="bg-body-tertiary mb-4">
         <Container>
           <Navbar.Brand as={NavLink} to="/">
             <strong>REACTbank </strong>
@@ -38,70 +38,70 @@ function NavBar() {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
 
-            <OverlayTrigger
+            {/* <OverlayTrigger
                 placement="bottom"
-                overlay={<Tooltip id="home-tooltip">"home page"</Tooltip>}
-              >
+                overlay={<Tooltip id="home-tooltip">home page</Tooltip>}
+              > */}
               <Nav.Link className="navlink" as={NavLink} to="/home">
                 Home
               </Nav.Link>
-              </OverlayTrigger>
+              {/* </OverlayTrigger> */}
 
-              <OverlayTrigger
+              {/* <OverlayTrigger
                 placement="bottom"
-                overlay={<Tooltip id="createaccount-tooltip">"create account page"</Tooltip>}
-              >
+                overlay={<Tooltip id="createaccount-tooltip">create account page</Tooltip>}
+              > */}
               <Nav.Link className="navlink" as={NavLink} to="/createaccount">
                 Create Account
               </Nav.Link>
-              </OverlayTrigger>
+              {/* </OverlayTrigger> */}
 
-              <OverlayTrigger
+              {/* <OverlayTrigger
                 placement="bottom"
-                overlay={<Tooltip id="login-tooltip">"login page"</Tooltip>}
-              >
+                overlay={<Tooltip id="login-tooltip">login page</Tooltip>}
+              > */}
               <Nav.Link className="navlink" as={NavLink} to="/login">
                 Login
               </Nav.Link>
-              </OverlayTrigger>
+              {/* </OverlayTrigger> */}
 
-              <OverlayTrigger
+              {/* <OverlayTrigger
                 placement="bottom"
-                overlay={<Tooltip id="deposit-tooltip">"deposit page"</Tooltip>}
-              >
+                overlay={<Tooltip id="deposit-tooltip">deposit page</Tooltip>}
+              > */}
                 <Nav.Link className="navlink" as={NavLink} to="/deposit">
                   Deposit
                 </Nav.Link>
-              </OverlayTrigger>
+              {/* </OverlayTrigger> */}
 
-              <OverlayTrigger
+              {/* <OverlayTrigger
                 placement="bottom"
-                overlay={<Tooltip id="withdraw-tooltip">"withdraw page"</Tooltip>}
-              >
+                overlay={<Tooltip id="withdraw-tooltip">withdraw page</Tooltip>}
+              > */}
               <Nav.Link className="navlink" as={NavLink} to="/withdraw">
                 Withdraw
               </Nav.Link>
-              </OverlayTrigger>
+              {/* </OverlayTrigger> */}
 
-              <OverlayTrigger
+              {/* <OverlayTrigger
                 placement="bottom"
-                overlay={<Tooltip id="balance-tooltip">"balance page"</Tooltip>}
-              >
+                overlay={<Tooltip id="balance-tooltip">balance page</Tooltip>}
+              > */}
               <Nav.Link className="navlink" as={NavLink} to="/balance">
                 Balance
               </Nav.Link>
-              </OverlayTrigger>
+              {/* </OverlayTrigger> */}
 
-              <OverlayTrigger
+              {/* <OverlayTrigger
                 placement="bottom"
-                overlay={<Tooltip id="deposit-tooltip">"alldata page"</Tooltip>}
-              >
+                overlay={<Tooltip id="deposit-tooltip">alldata page</Tooltip>}
+              > */}
               <Nav.Link className="navlink" as={NavLink} to="/alldata">
                 Users({users.length})
                 <AiOutlineUser />
                 <span>{cUser.name}</span>
               </Nav.Link>
-              </OverlayTrigger>
+              {/* </OverlayTrigger> */}
 
             </Nav>
           </Navbar.Collapse>
