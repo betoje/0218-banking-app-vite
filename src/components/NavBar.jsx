@@ -99,7 +99,7 @@ function NavBar() {
               <Nav.Link className="navlink" as={NavLink} to="/alldata">
                 Users({users.length})
                 <AiOutlineUser />
-                <span>{cUser.name}</span>
+                <strong>{cUser.name}</strong>
               </Nav.Link>
               {/* </OverlayTrigger> */}
 
