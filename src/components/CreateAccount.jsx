@@ -62,7 +62,7 @@ export default function CreateAccount() {
         <Col md="auto">
           <Card
         bgcolor="light"
-        txtcolor="secondary"
+        txtcolor="info"
         header1="Create account"
         header1Value=""
         status={status}
